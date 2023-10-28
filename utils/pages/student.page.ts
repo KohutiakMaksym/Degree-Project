@@ -13,7 +13,7 @@ export class StudentPage extends BasePage{
         super(page, 'https://www.uni.lodz.pl/en/student-zone');
     }
 
-    async waitForSelectedIAmAStudent() {
+    async waitForSelectedStudent() {
         await this.iAmAStudentSelected.waitForVisible();
     }
 }

@@ -9,7 +9,7 @@ export class MathStudentZonePage extends BasePage{
         'I Am a Student Selected Button'
     );
 
-    private contactTelephoneText = new BaseElement(
+    private contactDetailsText = new BaseElement(
         this.page,
         'p:has-text("tel")',
         'Contact Telephone Number'
@@ -24,6 +24,6 @@ export class MathStudentZonePage extends BasePage{
     }
 
     async getContactTelephoneText() {
-        return await this.contactTelephoneText.getText();
+        return await this.contactDetailsText.getText();
     }
 }

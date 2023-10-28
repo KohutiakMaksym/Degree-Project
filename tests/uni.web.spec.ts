@@ -1,8 +1,8 @@
 import {test} from "../fixtures/test.fixture";
 import {expect} from "@playwright/test";
 
-test.describe('Navigation: ', async () => {
-    test('student zone', async ({
+test.describe('Contact data: ', async () => {
+    test('faculty of Math and CS @student-zone', async ({
         homePage,
         studentPage,
         mathStudentZonePage,
@@ -10,15 +10,17 @@ test.describe('Navigation: ', async () => {
         const expectedTelephone = 'tel: 42/635 59 49';
         const expectedFax = 'fax: 42/635 42 66';
         await homePage.navigate();
+        await homePage.waitForLoaded();
 
         await homePage.clickChooseWhoIAm();
         await homePage.clickStudent();
 
-        await studentPage.waitForSelectedIAmAStudent();
+        await studentPage.waitForSelectedStudent();
         await homePage.clickChooseFaculty();
         await homePage.clickFacultyOfMathAndCS();
 
         await mathStudentZonePage.waitForSelectedFacultyOfMathAndCS();
+
         const contact = (await mathStudentZonePage.getContactTelephoneText())
             .split(/(?=fax:)/);
         const [ tel, fax ] = contact;
